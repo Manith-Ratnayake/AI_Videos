@@ -1,0 +1,10 @@
+0.00s: happy
+1.00s: happy
+2.00s: neutral
+3.00s: neutral
+4.00s: fear
+5.00s: sad
+6.00s: fear
+7.00s: sad
+8.00s: sad
+9.00s: neutral
