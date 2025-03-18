@@ -27,8 +27,20 @@ from ultralytics import YOLO
 model = YOLO("yolov8n.pt")  # Pre-trained model
 
 def detect_objects(frame):
+    print("\nModel- ",model)
     results = model(frame)
-    objects = [result.names[int(cls)] for result in results for cls in result.boxes.cls]
+    # objects = [result.names[int(cls)] for result in results for cls in result.boxes.cls]
+
+    print("results ---", results)
+
+    for result in results:
+        classes = results.boxes.cls.cpu().numpy()
+
+        for cls_id in classes:
+            objects.append(model.name[int(cls_id)])
+
+
+    print("---- " , objects)
     return objects
 
 
@@ -56,11 +68,12 @@ def summarize_captions(captions):
     return summary[0]["summary_text"]
 
 
-video_path = "video.mp4"
+video_path = "data/a.mp4"
 frames = extract_frames(video_path, interval=2)
 
 captions = []
 for frame in frames:
+    print("frame -- ", frame)
     objects = detect_objects(frame)
     caption = generate_caption(frame)
     captions.append(f"{caption}. Detected objects: {', '.join(objects)}.")
