@@ -1,0 +1,14 @@
+
+
+
+Image Captioning 
+
+BLIP 
+GIT
+OFA
+ViT + GIT 
+
+
+T2V 
+
+- 
