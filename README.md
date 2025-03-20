@@ -1,1 +1,1 @@
-# AI Videos
+![Alt text](GenAI.png "Framework Plan")
